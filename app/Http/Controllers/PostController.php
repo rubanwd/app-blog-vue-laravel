@@ -44,7 +44,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
+        $create = Post::create($request->all());
+
+        return response()->json(['status' => 'success', 'msg' => 'post created succesfully']);
     }
 
     /**

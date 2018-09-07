@@ -29,9 +29,9 @@
 
         <script>
 
-            window.Laravel = <? echo json_encode([
+            window.Laravel = `<php echo json_encode([
                 'csrfToken'-> csrf_token(),
-                ]); ?>
+                ]); ?>`
 
         </script>
         <script src="{{ asset('js/app.js') }}"></script>
