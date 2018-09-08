@@ -62,7 +62,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return Post::find($id);
     }
 
     /**
@@ -73,7 +73,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Post::find($id);
     }
 
     /**
@@ -85,7 +85,26 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
+
+        $post = Post::find($id);
+
+
+        if ($post->count()) {
+
+            $post->update($request->all());
+            return response()->json(['status' => 'success', 'msg' => 'post updated succesfully']);
+
+        } else {
+
+            return response()->json(['status' => 'error', 'msg' => 'error in updating post']);
+
+        }
+
     }
 
     /**
@@ -96,6 +115,17 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $post = Post::find($id);
+        if ($post->count()) {
+
+            $post->delete();
+            return response()->json(['status' => 'success', 'msg' => 'post deleted succesfully']);
+
+        } else {
+
+            return response()->json(['status' => 'error', 'msg' => 'error in deleting post']);
+
+        }
     }
 }
