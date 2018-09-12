@@ -1,5 +1,4 @@
 <template id="add-post">
-
 	<div>
 		<h3>Add new Post</h3>
 		<form v-on:submit.prevent = "createPost">
@@ -15,13 +14,9 @@
 			<router-link class="btn btn-xs btn-warning" v-bind:to="'/'">Cancel</router-link>
 		</form>
 	</div>
-
 </template>
-
 <script>
-	
 	export default {
-
         data:function(){
         	return {
         		post: {
@@ -30,7 +25,6 @@
         		}
         	}
         },
-
         methods: {
         	createPost: function() {
 	        	let url = 'http://localhost:8000/posts/';
@@ -41,9 +35,4 @@
 	        }
         }
     }
-
 </script>
-
-<style lang="css">
-	
-</style>

@@ -1,5 +1,4 @@
 <template id="post-list">
-
 	<div class="row">
 		<div class="pull-right">
 			<router-link class="btn btn-xs btn-primary" v-bind:to="{path: '/add-post'}">
@@ -30,27 +29,20 @@
 			</tbody>
 		</table>
 	</div>
-	
 </template>
-
 <script>
-	
 	export default {
-
         data:function(){
         	return {
         		posts: ''
         	}
         },
-
         created: function() {
         	let url = 'http://localhost:8000/posts/';
-
         	Axios.get(url).then((response) => {
         		this.posts = response.data;
         	});
         },
-
         computed: {
         	filteredPosts: function(){
         		if(this.posts.length) {
@@ -58,11 +50,5 @@
         		}
         	}
         }
-
     }
-
 </script>
-
-<style lang="css">
-	
-</style>

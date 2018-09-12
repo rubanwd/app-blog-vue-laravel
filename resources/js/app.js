@@ -2,28 +2,18 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-
 window.VueRouter = require('vue-router').default;
-
 window.VueAxios = require('vue-axios').default;
-
 window.Axios = require('axios').default;
 
-let AppLayout = require('./components/App.vue');
-
+const AppLayout = require('./components/App.vue');
 const Listposts = Vue.component('Listposts', require('./components/Listposts.vue'));
-
 const Addpost = Vue.component('Addpost', require('./components/Addpost.vue'));
-
 const Deletepost = Vue.component('Deletepost', require('./components/Deletepost.vue'));
-
 const Editpost = Vue.component('Editpost', require('./components/Editpost.vue'));
-
 const Viewpost = Vue.component('Viewpost', require('./components/Viewpost.vue'));
 
-
 Vue.use(VueRouter, VueAxios, Axios);
-
 
 const routes = [
 
@@ -55,9 +45,12 @@ const routes = [
 
 ];
 
-
-
-const router = new VueRouter({ mode: 'history', routes: routes});
+const router = new VueRouter(
+	{ 
+		mode: 'history', 
+		routes: routes
+	}
+);
 
 new Vue(
 	Vue.util.extend(

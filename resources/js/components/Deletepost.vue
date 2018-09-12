@@ -1,5 +1,4 @@
 <template id="delete-post">
-
 	<div>
 		<h3>Delete Post {{ post.title }}</h3>
 		<form v-on:submit.prevent = "deletePost">
@@ -8,13 +7,9 @@
 			<router-link class="btn btn-xs btn-ptimary" v-bind:to="'/'">Cancel</router-link>
 		</form>
 	</div>
-
 </template>
-
 <script>
-	
 	export default {
-
         data:function(){
         	return {
         		post: {
@@ -23,7 +18,6 @@
         		}
         	}
         },
-
         created: function(){
 
         	let url = 'http://localhost:8000/posts/' + this.$route.params.id + '/edit';
@@ -33,7 +27,6 @@
         	});
 
         },
-
         methods: {
         	deletePost: function() {
 	        	let url = 'http://localhost:8000/posts/' + this.$route.params.id;
@@ -44,9 +37,4 @@
 	        }
         }
     }
-
 </script>
-
-<style lang="css">
-	
-</style>
